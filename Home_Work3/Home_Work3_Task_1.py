@@ -47,13 +47,13 @@ num_better = 0
 num_never = 0
 num_is = 0
 for i in range(len(list_of_up_zen)):
-  if list_of_up_zen[i] == ("BETTER" or "BETTER."):
+  if list_of_up_zen[i] == "BETTER" or list_of_up_zen[i] == "BETTER.":
     num_better += 1
 # Я помітив, що метод спліт вважає "NEVER." одним словом, 
 # тому доводиться перевіряти і "NEVER" і "NEVER.".
-  elif list_of_up_zen[i] == ("NEVER" or "NEVER."):
+  if list_of_up_zen[i] == "NEVER" or list_of_up_zen[i] == "NEVER.":
     num_never += 1
-  elif list_of_up_zen[i] == {"IS" or "IS."}:
+  if list_of_up_zen[i] == "IS" or list_of_up_zen[i] == "IS.":
     num_is += 1
 
 print(f'The quantity of "better" is: {num_better}')

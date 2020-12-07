@@ -40,21 +40,15 @@ If the implementation is easy to explain, it may be a good idea.
 Namespaces are one honking great idea -- let's do more of those!
 """
 print(zen_of_python)
+
 # 2. Порахувати кількість слів (better, never, is)
 uper_zen = zen_of_python.upper()
 list_of_up_zen = uper_zen.split()
-num_better = 0
-num_never = 0
-num_is = 0
-for i in range(len(list_of_up_zen)):
-  if list_of_up_zen[i] == "BETTER" or list_of_up_zen[i] == "BETTER.":
-    num_better += 1
+num_better = list_of_up_zen.count("BETTER") + list_of_up_zen.count("BETTER.")
+num_never = list_of_up_zen.count("NEVER") + list_of_up_zen.count("NEVER.")
+num_is = list_of_up_zen.count("IS") + list_of_up_zen.count("IS.")
 # Я помітив, що метод спліт вважає "NEVER." одним словом, 
 # тому доводиться перевіряти і "NEVER" і "NEVER.".
-  if list_of_up_zen[i] == "NEVER" or list_of_up_zen[i] == "NEVER.":
-    num_never += 1
-  if list_of_up_zen[i] == "IS" or list_of_up_zen[i] == "IS.":
-    num_is += 1
 
 print(f'The quantity of "better" is: {num_better}')
 print(f'The quantity of "never" is: {num_never}')

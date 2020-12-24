@@ -10,7 +10,7 @@
 def odd_or_even(age):
     try:
         if age < 0:
-            raise ValueError("Valueerror")
+            raise ValueError("ValueError")
     except ValueError as e:
         print("You entered negative value!", e)
     else:

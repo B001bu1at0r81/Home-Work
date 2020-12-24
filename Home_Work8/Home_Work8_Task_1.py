@@ -1,58 +1,28 @@
-import pygame
+class Polygon:
+    def __init__(self, no_of_sides):
+        self.n = no_of_sides
+        self.sides = [0 for i in range(no_of_sides)]
 
-# Define some colors
-WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
+    def inputSides(self):
+        self.sides = [float(input("Enter side "+str(i+1)+" : ")) for i in range(self.n)]
 
-# Call this function so the Pygame library can initialize itself
-pygame.init()
- 
-# Create an 800x600 sized screen
-screen = pygame.display.set_mode([800, 600])
- 
-# This sets the name of the window
-pygame.display.set_caption('Fly')
- 
-clock = pygame.time.Clock()
-
-#обновляємо екран 
-pygame.display.update()
- 
-# Set positions of graphics
-background_position = [0, 0]
- 
-# Load and set up graphics.
-#background_image = pygame.image.load("saturn_family1.jpg").convert()
-#player_image = pygame.image.load("D:\Lectures\My_lect_Python\Game\+\player.png").convert()
-player_image = pygame.image.load("smile.jpg").convert()
-#Якщо в зображення не має прозорого слою, то щоб його встановити,
-#необхідно використати метод set_colorkey() класу Surface:
-player_image.set_colorkey(BLACK)
- 
-done = False
- 
-while not done:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            done = True            
- 
-    
-# Get the current mouse position. This returns the position
-    # as a list of two numbers.
-#повертає поточну позицію мишки на екрані
-    player_position = pygame.mouse.get_pos()
-    x = player_position[0]
-    y = player_position[1]
- 
-    # Copy image to screen:
-#копіює картинку на екран
-    screen.fill(BLACK)
-    screen.blit(player_image, [x, y])
- 
-#обновляємо екран
-    pygame.display.flip()
- 
-    clock.tick(60)
+    def dispSides(self):
+        for i in range(self.n):
+            print("Side",i+1,"is",self.sides[i])
 
 
-pygame.quit()
+class  Rectangle(Polygon):
+    def __init__(self):
+        super().__init__(2)
+
+    def findArea(self):
+        a,b = self.sides
+        area = a * b
+        print(f"Area of the rectangle is {area}")
+
+
+r = Rectangle()
+r.inputSides()
+r.dispSides()
+r.findArea()
+
